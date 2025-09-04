@@ -8,6 +8,49 @@ import sqlparse
 import sqlite3
 import sys
 import os
+import sys
+import logging
+import logging.config
+
+# Check if the application is running as a PyInstaller bundle
+# This check is crucial to ensure this fix only applies to the executable
+if getattr(sys, 'frozen', False):
+    class MyStreamHandler(logging.StreamHandler):
+        def isatty(self):
+            # Always return True or False. Returning True can sometimes
+            # make the logging formatter add color codes, which you may
+            # or may not want. Returning False is generally safer.
+            return True
+
+    # Create a new logger and add the custom handler
+    logger = logging.getLogger("uvicorn")
+    logger.addHandler(MyStreamHandler(sys.stdout))
+    logger.propagate = False  # Prevent logs from going to the root logger
+
+LOGGING_CONFIG = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "standard": {
+            "format": "%(levelname)s: %(message)s"
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "standard",
+            "stream": sys.stdout,
+        },
+    },
+    "loggers": {
+        "uvicorn": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": False,
+        },
+    }
+}
+logging.config.dictConfig(LOGGING_CONFIG)
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
