@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Visualizer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-pane">
+            <h2>SQL Input</h2>
+            <form hx-post="/execute-sql" hx-target="#right-pane-content" hx-swap="innerHTML">
+                <textarea name="sql_query" rows="20" cols="50"></textarea>
+                <br>
+                <button type="submit">Execute</button>
+            </form>
+            <div id="output-section"></div>
+        </div>
+        <div class="right-pane">
+            <h2>Tables</h2>
+            <div id="right-pane-content"></div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</body>
+</html>

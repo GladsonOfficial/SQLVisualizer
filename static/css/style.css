@@ -1,0 +1,43 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.left-pane {
+    width: 50%;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+.right-pane {
+    width: 50%;
+    padding: 20px;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
