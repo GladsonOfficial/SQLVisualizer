@@ -1,7 +1,7 @@
 # SQLVisualizer
 
 ## Description
-SQLVisualizer is a web-based tool designed to help users visualize SQL database schemas and query outputs. It provides an intuitive interface to execute SQL queries and display the results in a clear, readable format.
+SQLVisualizer is a browser-based tool designed to help users visualize SQL database schemas and query outputs. It provides an intuitive interface to execute SQL queries and display the results in a clear, readable format.
 
 ## Features
 - Execute custom SQL queries.
@@ -50,7 +50,7 @@ SQLVisualizer is a web-based tool designed to help users visualize SQL database 
     ```
 
 2.  **Access the web interface:**
-    Open your web browser and navigate to `http://127.0.0.1:5000` (or the address shown in your console).
+    Open your web browser and navigate to `http://127.0.0.1:8000` (or the address shown in your console).
 
 3.  **Interact with the application:**
     -   On the homepage, you should be able to interact with the SQL visualization features. This may involve uploading a database file, inputting SQL queries, or browsing existing tables.
